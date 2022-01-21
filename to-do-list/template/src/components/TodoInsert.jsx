@@ -4,12 +4,12 @@ import './TodoInsert.scss';
 
 const TodoInsert = () => {
   return (
-    <div className="TodoInsert">
-      <input placeholder="할 일을 입력하세요" />
+    <form className="TodoInsert">
+      <input placeholder="Type New List Item" />
       <button type="submit">
         <MdAdd />
       </button>
-    </div>
+    </form>
   );
 };
 

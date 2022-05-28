@@ -3,19 +3,19 @@ import BucketList from './BucketList';
 import Detail from './Detail';
 import NotFound from './NotFound';
 import styled from 'styled-components';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { createBucket } from './redux/modules/bucket';
 
 function App() {
-  const [list, setList] = useState([
-    '영화관 가기',
-    '매일 책읽기',
-    '수영 배우기',
-  ]);
-
+  console.log(useSelector(state => state));
+  const my_lists = useSelector(state => state.bucket.list);
+  const dispatch = useDispatch();
   const input = useRef(null);
 
   const addList = () => {
-    setList([...list, input.current.value]);
+    dispatch(createBucket(input.current.value));
     input.current.value = null;
   };
 
@@ -25,7 +25,7 @@ function App() {
         <Title>내 버킷리스트</Title>
         <Line />
         <Routes>
-          <Route path="/" element={<BucketList list={list} />} />
+          <Route path="/" element={<BucketList my_lists={my_lists} />} />
           <Route path="/detail" element={<Detail />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

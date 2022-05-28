@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BucketList = props => {
-  const { list } = props;
+  const { my_lists } = props;
   const navigate = useNavigate();
 
   return (
     <ListStyle>
-      {list.map((l, i) => (
+      {my_lists.map((l, i) => (
         <ItemStyle key={i} onClick={() => navigate('detail')}>
           {l}
         </ItemStyle>

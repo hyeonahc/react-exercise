@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 const BucketList = props => {
-  console.log(props);
-  console.log(props.list);
   const my_lists = props.list;
 
   const history = useHistory();
